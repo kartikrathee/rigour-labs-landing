@@ -1,0 +1,452 @@
+/* eslint-disable @next/next/no-img-element */
+export default function Products() {
+    const products = [
+        {
+            title: "Rigovo",
+            category: "SaaS / B2B",
+            stage: "Beta",
+            stageColor: "#fbbf24",
+            description: "Your AI co-pilot for technical hiring. Maya AI handles screening while your team focuses on culture fit. 13-signal fraud detection catches deepfakes and proxy candidates in real-time. Currently in free beta with 2 organizations—no payments yet, just building and learning.",
+            link: "https://rigovo.com",
+            cta: "Visit Rigovo",
+            color: "var(--primary)",
+            glow: "var(--primary-glow)",
+            features: ["You Stay in Control", "82 Interviews Monitored", "6,800+ Anomalies Detected"],
+            techStack: ["Next.js", "Python", "TensorFlow", "GCP"],
+            targetAudience: "HR Teams, Technical Recruiters, Staffing Agencies",
+            betaStats: {
+                interviews: 82,
+                anomalies: "6,800+",
+                flagRate: "41%",
+                organizations: 2
+            }
+        },
+        {
+            title: "Rigour CLI",
+            category: "OSS / Developer Tools",
+            stage: "Production",
+            stageColor: "#34d399",
+            description: "A command-line tool that checks AI-generated code before it goes to production. Runs locally on your machine—no code leaves your computer. Now with Agent Team Governance for Opus 4.6 and Checkpoint Supervision for GPT-5.3 coworking mode.",
+            link: "https://rigour.run",
+            docsLink: "https://docs.rigour.run",
+            npmLink: "https://www.npmjs.com/package/@rigour-labs/cli",
+            githubLink: "https://github.com/rigour-labs/rigour",
+            githubAppLink: "https://github.com/apps/rigour-bot",
+            mcpRegistryLink: "https://github.com/mcp?search=rigour",
+            cta: "Explore Rigour OSS",
+            color: "var(--accent-emerald)",
+            glow: "rgba(52, 211, 153, 0.2)",
+            features: ["Agent Team Governance", "Checkpoint Supervision", "Official MCP Server", "Local-only Analysis"],
+            techStack: ["TypeScript", "Node.js", "MCP Protocol", "Agent Orchestration"],
+            targetAudience: "Software Developers using AI coding tools (Opus 4.6, GPT-5.3+)",
+            npmBadge: "https://img.shields.io/npm/dw/@rigour-labs/cli.svg?label=weekly%20downloads&color=10b981"
+        }
+    ];
+
+    return (
+        <section id="products" aria-labelledby="products-heading" style={{ padding: 'clamp(4rem, 8vw, 8rem) 0' }}>
+            <div className="container">
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+                    <div style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.625rem',
+                        padding: '0.50rem 1rem',
+                        borderRadius: '9999px',
+                        background: 'rgba(16, 185, 129, 0.08)',
+                        border: '1px solid rgba(16, 185, 129, 0.2)',
+                        color: 'var(--accent-emerald)',
+                        fontSize: '0.7rem',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        marginBottom: '1.5rem'
+                    }}>
+                        Portfolio
+                    </div>
+                    <h2 id="products-heading" style={{ fontSize: 'clamp(2.25rem, 5vw, 3rem)', marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>Our Products</h2>
+                    <p style={{ color: 'var(--secondary)', maxWidth: '650px', margin: '0 auto', fontSize: 'clamp(1rem, 2vw, 1.125rem)', lineHeight: '1.7' }}>
+                        Rigour CLI verifies AI-native development with local-only analysis. Total Integrity for your code.
+                    </p>
+                </div>
+
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
+                    gap: '2rem'
+                }}>
+                    {products.filter(p => p.title !== 'Rigovo').map((product, index) => (
+                        <article key={index} className="glass" style={{
+                            padding: 'clamp(1.5rem, 3vw, 2.5rem)',
+                            transition: 'transform 0.3s ease, border-color 0.3s ease',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between'
+                        }}>
+                            <div>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: '1.5rem',
+                                    flexWrap: 'wrap',
+                                    gap: '0.5rem'
+                                }}>
+                                    <span style={{
+                                        color: product.color,
+                                        fontSize: '0.75rem',
+                                        fontWeight: '700',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.1em',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '0.5rem'
+                                    }}>
+                                        <span style={{
+                                            width: '6px',
+                                            height: '6px',
+                                            borderRadius: '50%',
+                                            background: product.color,
+                                            boxShadow: `0 0 10px ${product.color}`
+                                        }} aria-hidden="true" />
+                                        {product.category}
+                                    </span>
+                                    <span style={{
+                                        padding: '0.25rem 0.75rem',
+                                        borderRadius: '9999px',
+                                        background: `${product.stageColor}20`,
+                                        border: `1px solid ${product.stageColor}40`,
+                                        color: product.stageColor,
+                                        fontSize: '0.7rem',
+                                        fontWeight: '700',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.05em'
+                                    }}>
+                                        {product.stage}
+                                    </span>
+                                </div>
+
+                                <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', marginBottom: '1rem' }}>{product.title}</h3>
+
+                                {'npmBadge' in product && (
+                                    <div style={{ marginBottom: '1rem' }}>
+                                        <img
+                                            src={product.npmBadge as string}
+                                            alt={`NPM weekly downloads for ${product.title}`}
+                                            width={160}
+                                            height={20}
+                                            loading="lazy"
+                                            style={{ height: '20px', width: 'auto', filter: 'grayscale(1) brightness(1.5)' }}
+                                        />
+                                        <div style={{
+                                            display: 'flex',
+                                            gap: '0.5rem',
+                                            marginTop: '1rem',
+                                            flexWrap: 'wrap'
+                                        }}>
+                                            <span style={{
+                                                padding: '0.25rem 0.625rem',
+                                                borderRadius: '0.5rem',
+                                                background: 'rgba(99, 102, 241, 0.1)',
+                                                border: '1px solid rgba(99, 102, 241, 0.2)',
+                                                color: 'var(--primary)',
+                                                fontSize: '0.65rem',
+                                                fontWeight: '800',
+                                                textTransform: 'uppercase',
+                                                letterSpacing: '0.05em',
+                                                display: 'inline-flex',
+                                                alignItems: 'center',
+                                                gap: '0.35rem'
+                                            }}>
+                                                Opus 4.6
+                                            </span>
+                                            <span style={{
+                                                padding: '0.25rem 0.625rem',
+                                                borderRadius: '0.5rem',
+                                                background: 'rgba(16, 185, 129, 0.1)',
+                                                border: '1px solid rgba(16, 185, 129, 0.2)',
+                                                color: 'var(--accent-emerald)',
+                                                fontSize: '0.65rem',
+                                                fontWeight: '800',
+                                                textTransform: 'uppercase',
+                                                letterSpacing: '0.05em',
+                                                display: 'inline-flex',
+                                                alignItems: 'center',
+                                                gap: '0.35rem'
+                                            }}>
+                                                GPT-5.3
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {'betaStats' in product && (
+                                    <div style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(3, 1fr)',
+                                        gap: '1px',
+                                        marginBottom: '1.5rem',
+                                        background: 'var(--card-border)',
+                                        borderRadius: '0.75rem',
+                                        overflow: 'hidden',
+                                        border: '1px solid var(--card-border)'
+                                    }} role="list" aria-label="Beta statistics">
+                                        <div style={{ textAlign: 'center', background: 'rgba(2, 4, 10, 0.4)', padding: '0.75rem' }} role="listitem">
+                                            <div style={{ fontSize: '1.125rem', fontWeight: '700', color: '#ffffff' }}>82</div>
+                                            <div style={{ fontSize: '0.6rem', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Interviews</div>
+                                        </div>
+                                        <div style={{ textAlign: 'center', background: 'rgba(2, 4, 10, 0.4)', padding: '0.75rem' }} role="listitem">
+                                            <div style={{ fontSize: '1.125rem', fontWeight: '700', color: '#ffffff' }}>6.8K</div>
+                                            <div style={{ fontSize: '0.6rem', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Signals</div>
+                                        </div>
+                                        <div style={{ textAlign: 'center', background: 'rgba(2, 4, 10, 0.4)', padding: '0.75rem' }} role="listitem">
+                                            <div style={{ fontSize: '1.125rem', fontWeight: '700', color: '#10b981' }}>41%</div>
+                                            <div style={{ fontSize: '0.6rem', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Flagged</div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <p style={{ color: 'var(--secondary)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                                    {product.description}
+                                </p>
+
+                                <div style={{
+                                    marginBottom: '1.5rem',
+                                    padding: '1rem',
+                                    background: 'rgba(255, 255, 255, 0.02)',
+                                    borderRadius: '0.75rem',
+                                    border: '1px solid rgba(255, 255, 255, 0.05)'
+                                }}>
+                                    <h4 style={{
+                                        fontSize: '0.7rem',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.1em',
+                                        color: 'var(--secondary)',
+                                        marginBottom: '0.5rem',
+                                        fontWeight: '600'
+                                    }}>
+                                        Target Audience
+                                    </h4>
+                                    <p style={{ color: '#e2e8f0', fontSize: '0.9rem', margin: 0 }}>
+                                        {product.targetAudience}
+                                    </p>
+                                </div>
+
+                                <div style={{ marginBottom: '1.5rem' }}>
+                                    <h4 style={{
+                                        fontSize: '0.7rem',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.1em',
+                                        color: 'var(--secondary)',
+                                        marginBottom: '0.75rem',
+                                        fontWeight: '600'
+                                    }}>
+                                        Key Features
+                                    </h4>
+                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                        {product.features.map((feature, fIndex) => (
+                                            <li key={fIndex} style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.75rem',
+                                                marginBottom: '0.5rem',
+                                                fontSize: '0.9rem',
+                                                color: '#cbd5e1'
+                                            }}>
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={product.color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div style={{ marginBottom: '2rem' }}>
+                                    <h4 style={{
+                                        fontSize: '0.7rem',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.1em',
+                                        color: 'var(--secondary)',
+                                        marginBottom: '0.75rem',
+                                        fontWeight: '600'
+                                    }}>
+                                        Tech Stack
+                                    </h4>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                        {product.techStack.map((tech, tIndex) => (
+                                            <span key={tIndex} style={{
+                                                padding: '0.25rem 0.75rem',
+                                                background: 'rgba(255, 255, 255, 0.05)',
+                                                borderRadius: '0.375rem',
+                                                fontSize: '0.75rem',
+                                                color: '#cbd5e1',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)'
+                                            }}>
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <nav aria-label={`${product.title} links`} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <a href={product.link} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{
+                                    textAlign: 'center',
+                                    borderColor: product.color,
+                                    color: 'white',
+                                    background: 'rgba(255, 255, 255, 0.02)',
+                                    boxShadow: `inset 0 0 10px ${product.glow}`
+                                }}>
+                                    {product.cta}
+                                    <span className="sr-only"> (opens in new tab)</span>
+                                </a>
+                                {'docsLink' in product && (
+                                    <>
+                                        <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                            <a href={product.docsLink} target="_blank" rel="noopener noreferrer" style={{
+                                                flex: 1,
+                                                textAlign: 'center',
+                                                padding: '0.625rem',
+                                                background: 'rgba(255, 255, 255, 0.03)',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                                borderRadius: '0.375rem',
+                                                color: 'var(--secondary)',
+                                                fontSize: '0.8rem',
+                                                transition: 'all 0.2s ease',
+                                                minHeight: '44px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                Documentation
+                                            </a>
+                                            <a href={product.npmLink} target="_blank" rel="noopener noreferrer" style={{
+                                                flex: 1,
+                                                textAlign: 'center',
+                                                padding: '0.625rem',
+                                                background: 'rgba(255, 255, 255, 0.03)',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                                borderRadius: '0.375rem',
+                                                color: 'var(--secondary)',
+                                                fontSize: '0.8rem',
+                                                transition: 'all 0.2s ease',
+                                                minHeight: '44px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                NPM Package
+                                            </a>
+                                            <a href={product.githubLink} target="_blank" rel="noopener noreferrer" style={{
+                                                flex: 1,
+                                                textAlign: 'center',
+                                                padding: '0.625rem',
+                                                background: 'rgba(255, 255, 255, 0.03)',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                                borderRadius: '0.375rem',
+                                                color: 'var(--secondary)',
+                                                fontSize: '0.8rem',
+                                                transition: 'all 0.2s ease',
+                                                minHeight: '44px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                Source Code
+                                            </a>
+                                        </div>
+                                        <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                            {'mcpRegistryLink' in product && (
+                                                <a href={product.mcpRegistryLink as string} target="_blank" rel="noopener noreferrer" style={{
+                                                    flex: 1,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    gap: '0.5rem',
+                                                    padding: '0.625rem',
+                                                    background: 'rgba(129, 140, 248, 0.1)',
+                                                    border: '1px solid rgba(129, 140, 248, 0.3)',
+                                                    borderRadius: '0.375rem',
+                                                    color: 'var(--primary)',
+                                                    fontSize: '0.75rem',
+                                                    fontWeight: '600',
+                                                    transition: 'all 0.2s ease',
+                                                    minHeight: '44px'
+                                                }}>
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                                    </svg>
+                                                    MCP Server
+                                                </a>
+                                            )}
+                                            {'githubAppLink' in product && (
+                                                <a href={product.githubAppLink as string} target="_blank" rel="noopener noreferrer" style={{
+                                                    flex: 1,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    gap: '0.5rem',
+                                                    padding: '0.625rem',
+                                                    background: 'rgba(52, 211, 153, 0.1)',
+                                                    border: '1px solid rgba(52, 211, 153, 0.3)',
+                                                    borderRadius: '0.375rem',
+                                                    color: 'var(--accent-emerald)',
+                                                    fontSize: '0.75rem',
+                                                    fontWeight: '600',
+                                                    transition: 'all 0.2s ease',
+                                                    minHeight: '44px'
+                                                }}>
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                                    </svg>
+                                                    GitHub App
+                                                </a>
+                                            )}
+                                        </div>
+                                    </>
+                                )}
+                            </nav>
+                        </article>
+                    ))}
+                </div>
+
+                <div style={{
+                    marginTop: 'clamp(2.5rem, 5vw, 5rem)',
+                    padding: 'clamp(1.5rem, 3vw, 3rem)',
+                    background: 'rgba(129, 140, 248, 0.03)',
+                    border: '1px solid rgba(129, 140, 248, 0.1)',
+                    borderRadius: '1.5rem',
+                    textAlign: 'center'
+                }}>
+                    <h3 style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)', marginBottom: '1.5rem' }}>Why We Built These</h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+                        gap: '2rem',
+                        textAlign: 'left'
+                    }}>
+                        <div>
+                            <h4 style={{ color: 'var(--primary)', marginBottom: '0.75rem', fontSize: '1.1rem' }}>Cheating in Remote Interviews</h4>
+                            <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                                Companies are seeing candidates use hidden help, fake identities, and even proxies during video interviews. It wastes time and leads to bad hires.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style={{ color: 'var(--accent-emerald)', marginBottom: '0.75rem', fontSize: '1.1rem' }}>AI Code That Breaks</h4>
+                            <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                                AI assistants write code fast, but they don&apos;t always get it right. Without proper checks, buggy code makes it to production.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style={{ color: '#fbbf24', marginBottom: '0.75rem', fontSize: '1.1rem' }}>Privacy Concerns</h4>
+                            <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                                Many dev tools upload your code to analyze it. We think that&apos;s wrong. Rigour CLI runs 100% on your machine—nothing gets sent anywhere.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
